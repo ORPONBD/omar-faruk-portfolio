@@ -1,16 +1,23 @@
-# Omar Faruk Portfolio
+# Omar Faruk Portfolio + Admin CMS
 
-A Netlify-ready personal portfolio for Omar Faruk, Digital Marketing Specialist.
+Netlify-ready portfolio with a Supabase-powered admin dashboard.
 
-## Deploy to Netlify
-1. Upload this folder to a GitHub repository.
-2. In Netlify, choose **Add new project → Import an existing project**.
-3. Select the GitHub repository.
-4. Build command: leave blank.
-5. Publish directory: `.`
-6. Deploy.
+## Before deploying
+1. Open `site-config.js` and `admin/config.js`.
+2. Set `SUPABASE_URL` to your Supabase project URL (for example `https://YOUR-PROJECT.supabase.co`).
+3. Set `SUPABASE_ANON_KEY` to the **Publishable key** from Supabase Settings → API Keys. Never use a secret/service-role key in browser code.
+4. The database schema is in `supabase/schema.sql`; run it once in Supabase SQL Editor.
+5. Create your admin user in Supabase Authentication → Users.
 
-## Edit content
-Open `index.html` and edit the visible text. Styling is in `style.css` and interactions are in `script.js`.
+## Deploy
+- Push the folder contents to your GitHub repository root.
+- Netlify: import the GitHub repo.
+- Branch: `main`
+- Build command: blank
+- Base directory: blank
+- Publish directory: `.`
 
-The contact form uses Netlify Forms (`data-netlify="true"`). After deployment, enable/confirm Forms in Netlify and submissions will appear in the Netlify dashboard.
+## Admin
+After deploy, open `/admin/` and sign in with your Supabase user.
+
+The admin can edit homepage/about/contact/SEO settings and CRUD services, projects, insights, and testimonials. Image fields support direct URL entry and authenticated upload to the `portfolio-media` Supabase Storage bucket.
