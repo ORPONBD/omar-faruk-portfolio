@@ -6,7 +6,7 @@ Netlify-ready portfolio with a Supabase-powered admin dashboard.
 1. Open `site-config.js` and `admin/config.js`.
 2. Set `SUPABASE_URL` to your Supabase project URL (for example `https://YOUR-PROJECT.supabase.co`).
 3. Set `SUPABASE_ANON_KEY` to the **Publishable key** from Supabase Settings → API Keys. Never use a secret/service-role key in browser code.
-4. The database schema is in `supabase/schema.sql`; run it once in Supabase SQL Editor.
+4. The database schema is in `supabase/schema.sql`; run it once in Supabase SQL Editor. For an existing Supabase project, apply `supabase/migrations/20261001000000_profile_and_case_study_fields.sql` in the SQL Editor before deploying the updated admin page.
 5. Create your admin user in Supabase Authentication → Users.
 
 ## Deploy

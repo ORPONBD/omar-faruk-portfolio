@@ -12,6 +12,7 @@ create table if not exists public.site_content (
   about_name text default 'Omar Faruk.',
   about_lead text default 'A Digital Marketing Specialist focused on helping brands grow through paid media, e-commerce marketing and performance-driven strategy.',
   about_body text default 'I work across Meta advertising, creative strategy, retargeting, analytics and conversion tracking. My goal is simple: understand the business, identify the bottleneck, test intelligently and scale what works.',
+  experience_summary text default '',
   about_role text default 'Digital Marketing Specialist',
   about_specialties text default 'Meta Ads · Performance Marketing · E-commerce',
   profile_image_url text default '',
@@ -49,6 +50,8 @@ create table if not exists public.projects (
   category text default '',
   title text not null,
   description text default '',
+  services_used text default '',
+  results text default '',
   image_url text default '',
   cta_label text default 'View Work ↗',
   cta_url text default '#contact',
@@ -81,6 +84,10 @@ create table if not exists public.testimonials (
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
+
+alter table public.site_content add column if not exists experience_summary text default '';
+alter table public.projects add column if not exists services_used text default '';
+alter table public.projects add column if not exists results text default '';
 
 alter table public.site_content enable row level security;
 alter table public.services enable row level security;
