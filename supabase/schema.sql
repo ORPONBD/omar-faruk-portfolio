@@ -52,6 +52,11 @@ create table if not exists public.projects (
   description text default '',
   services_used text default '',
   results text default '',
+  slug text,
+  challenge text,
+  strategy text,
+  execution text,
+  tools_used text,
   image_url text default '',
   cta_label text default 'View Work ↗',
   cta_url text default '#contact',
@@ -59,6 +64,13 @@ create table if not exists public.projects (
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
+
+alter table public.projects
+  add column if not exists slug text,
+  add column if not exists challenge text,
+  add column if not exists strategy text,
+  add column if not exists execution text,
+  add column if not exists tools_used text;
 
 create table if not exists public.insights (
   id uuid primary key default gen_random_uuid(),
