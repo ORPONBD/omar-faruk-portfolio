@@ -202,3 +202,43 @@ nav a:hover,.footer a:hover{color:#EA3344}
 .results-metric span{color:#4F6878}
 .results-metric:first-child{border-top-color:#EA3344}
 .read-more-pending{color:#4F6878}
+
+/* Homepage-only spacing and hierarchy polish */
+.home-page .hero{padding-top:clamp(82px,8vw,112px);padding-bottom:68px}
+.home-page .hero h1{max-width:940px;margin:20px 0 22px;font-size:clamp(52px,7vw,88px);line-height:1.02;letter-spacing:-.055em}
+.home-page .hero-copy{max-width:600px;margin:0;color:#4F6878;font-size:18px;line-height:1.7}
+.home-page .hero-actions{gap:14px;margin:26px 0 42px}
+.home-page .hero-actions .btn{min-height:50px;padding:13px 20px}
+.home-page .hero-meta{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:790px;padding:22px 0 20px;border-top:1px solid #DDE5E2;border-bottom:1px solid #DDE5E2}
+.home-page .hero-meta div{gap:5px;min-width:0}
+.home-page .hero-meta strong{color:#233D60;font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.home-page .hero-meta span{color:#4A7FA0;font-size:12px;line-height:1.5}
+.home-page .ticker{border-top:0;border-bottom:1px solid #DDE5E2}
+.home-page .intro{padding-top:96px;padding-bottom:102px;border-bottom:1px solid #DDE5E2;gap:42px}
+.home-page .intro h2{max-width:780px;color:#233D60;font-size:clamp(36px,5vw,58px);line-height:1.08;letter-spacing:-.045em}
+.home-page .intro h2 span{color:#233D60}
+.home-page .intro p{max-width:740px;margin:22px 0 0;color:#4F6878;font-size:17px;line-height:1.8}
+.home-page .services{padding-top:82px;padding-bottom:100px}
+.home-page .services>.section-tag{display:block;margin-bottom:24px}
+.home-page .service-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.home-page .service-grid article{display:flex;flex-direction:column;min-width:0;min-height:300px;padding:25px 24px;border:1px solid #DDE5E2;border-radius:4px;background:#FFFFFF;box-shadow:0 4px 14px rgba(35,61,96,.035);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.home-page .service-grid article:hover{transform:translateY(-3px);border-color:#A9D9DB;box-shadow:0 10px 22px rgba(35,61,96,.08)}
+.home-page .service-grid b{color:#4A7FA0;font-size:10px;letter-spacing:.1em}
+.home-page .service-grid h3{margin:44px 0 12px;color:#233D60;font-size:21px;line-height:1.25;letter-spacing:-.02em}
+.home-page .service-grid p{margin:0 0 42px;color:#4F6878;font-size:13px;line-height:1.7}
+.home-page .service-grid a{bottom:22px;color:#4A7FA0;font-weight:600}
+.home-page .service-grid a:hover{color:#EA3344}
+.home-page .services>.text-link{margin-top:22px}
+.home-page .work{padding-top:80px;padding-bottom:100px}
+.home-page .work-head{align-items:end;gap:36px;margin-bottom:26px}
+.home-page .work-head .section-tag{color:#4A7FA0}
+.home-page .work-head p{max-width:560px;color:#4F6878;line-height:1.7}
+.home-page #projectsGrid{gap:20px}
+.home-page .home-project-card{border-radius:4px}
+.home-page .home-project-card .case-info{padding:23px 24px}
+.home-page .home-project-card .case-info h3{margin:7px 0 8px;font-size:20px;line-height:1.3}
+.home-page .home-project-card .case-info p{line-height:1.65}
+.home-page .home-project-card .home-project-link{font-weight:600;transition:color .18s ease}
+.home-page .home-project-card:hover .home-project-link{color:#EA3344}
+@media(max-width:800px){.home-page .hero-meta{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.home-page .intro{grid-template-columns:1fr;gap:24px}.home-page .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-page .work-head{grid-template-columns:1fr;gap:12px}}
+@media(max-width:520px){.home-page .hero{padding-top:66px;padding-bottom:50px}.home-page .hero h1{max-width:100%;font-size:clamp(36px,9.5vw,42px);line-height:1.07;letter-spacing:-.045em;margin:18px 0}.home-page .hero-copy{font-size:16px;line-height:1.65}.home-page .hero-actions{flex-direction:column;align-items:stretch;margin:22px 0 30px;gap:10px}.home-page .hero-actions .btn{width:100%}.home-page .hero-meta{gap:9px;padding:17px 0}.home-page .hero-meta strong{font-size:9px;letter-spacing:.06em}.home-page .hero-meta span{font-size:10px}.home-page .intro{padding-top:70px;padding-bottom:74px;gap:18px}.home-page .intro h2{font-size:clamp(32px,8vw,38px);line-height:1.12;letter-spacing:-.04em}.home-page .intro p{margin-top:16px;font-size:15px;line-height:1.75}.home-page .services{padding-top:64px;padding-bottom:72px}.home-page .service-grid{grid-template-columns:1fr;gap:12px}.home-page .service-grid article{min-height:255px;padding:22px}.home-page .service-grid h3{margin-top:30px}.home-page .service-grid p{margin-bottom:38px}.home-page .work{padding-top:62px;padding-bottom:76px}.home-page #projectsGrid{gap:16px}.home-page .home-project-card .case-info{padding:20px 18px}}
