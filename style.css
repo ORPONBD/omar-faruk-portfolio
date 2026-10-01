@@ -133,3 +133,72 @@ nav a:hover,.footer a:hover{color:#294C5B}
 .results-metric span{color:#617078}
 .read-more-pending{color:#718087}
 @media(max-width:800px){.nav.nav-open nav{background:#FFFFFF}.case-info{flex-direction:column}}
+
+/* Summer Ocean Breeze color refinement */
+:root{--bg:#F0F7EF;--panel:#FFFFFF;--text:#233D60;--muted:#4F6878;--line:#A9D9DB;--accent:#EA3344}
+body{background:#F0F7EF;color:#233D60}
+.nav,.footer,.hero-meta,.proof-list>div,.insight-grid,.case-info{border-color:#A9D9DB}
+.logo,.footer .logo{color:#233D60}
+.logo span{color:#EA3344}
+nav a,.footer a{color:#4F6878}
+nav a:hover,.footer a:hover{color:#EA3344}
+.nav nav a[aria-current="page"]{color:#EA3344}
+.nav-cta{border-color:#233D60;color:#233D60}
+.menu{color:#233D60}
+.nav.nav-open nav{border-color:#A9D9DB}
+.hero h1,.page-hero h1,.intro h2,.proof h2,.about h2,.contact h2,.cta-inner h2,.case-info h3,.service-grid h3,.insight-grid h3,.case-study-heading h1,.case-study-state h1,.case-study-sections h2,.project-empty h2{color:#233D60}
+.hero h1 em,.page-hero h1 em,.contact h2 em,.cta-inner h2 em,.about h2 span{color:#EA3344}
+.hero-copy,.intro p,.page-hero .hero-copy,.work-head p,.cta-inner>p,.proof-list p,.proof-inner>div>p,.about p,.insight-grid p,.contact p,.case-study-heading .hero-copy,.case-study-sections p,.case-study-state p{color:#4F6878}
+.eyebrow,.section-tag,.case-info small,.insight-grid small,.case-study-heading .eyebrow{color:#4A7FA0}
+.eyebrow i{background:#A9D9DB}
+.hero-meta{border-color:#A9D9DB}
+.hero-meta strong{color:#233D60}
+.hero-meta span{color:#4F6878}
+.btn.primary,.contact .btn.primary{background:#EA3344;border-color:#EA3344;color:#FFFFFF}
+.btn.primary:hover,.contact .btn.primary:hover{background:#233D60;border-color:#233D60;color:#FFFFFF}
+.btn.ghost,.footer-contact .btn{background:#FFFFFF;border-color:#233D60;color:#233D60}
+.btn.ghost:hover,.footer-contact .btn:hover{background:#233D60;border-color:#233D60;color:#FFFFFF}
+.text-link,.service-grid a,.case-info a,.insight-grid a,.case-study-back{color:#4A7FA0}
+.text-link:hover,.service-grid a:hover,.case-info a:hover,.insight-grid a:hover,.case-study-back:hover{color:#EA3344}
+.case-grid:not(.case-grid-work) .home-project-card .home-project-link{color:#4A7FA0}
+.case-grid:not(.case-grid-work) .home-project-card .home-project-link:hover{color:#EA3344}
+.ticker{background:#F0F7EF;border-color:#A9D9DB;color:#4F6878}
+.ticker span,.service-grid b,.proof-list strong{color:#4A7FA0}
+.service-grid{border-color:#A9D9DB}
+.service-grid article{border-color:#A9D9DB;background:#FFFFFF}
+.case{border-color:#A9D9DB;background:#FFFFFF}
+.home-project-visual,.case-grid-work .case-visual,.case-grid-work .case-visual.has-image{background:#F0F7EF}
+.case-grid-work .case-link{color:#4A7FA0}
+.case-grid-work .case-link:hover{color:#EA3344}
+.case-grid-work .case-visual span{color:#233D60;border-color:#A9D9DB}
+.case-grid-work .case-info p,.case-meta,.case-grid-work .case-meta span{color:#4F6878}
+.case-grid-work .case-meta strong,.case-meta strong{color:#233D60}
+.project-filter{background:#FFFFFF;border-color:#A9D9DB;color:#4F6878}
+.project-filter:hover,.project-filter.is-active{border-color:#EA3344;color:#EA3344}
+.project-filter.is-active{background:rgba(169,217,219,.24)}
+.project-empty,.about-card,.insight-grid article{border-color:#A9D9DB;background:#FFFFFF}
+.about-card strong,.about-card h3{color:#233D60}
+.about-card span{color:#4F6878}
+.avatar{background:#A9D9DB;color:#233D60}
+.skills span{background:#F0F7EF;border-color:#A9D9DB;color:#4F6878}
+.proof,.contact,.contact-cta{background:#F0F7EF;border-color:#A9D9DB;color:#233D60}
+.proof h2 span{color:#4A7FA0}
+.contact .section-tag,.contact-cta .section-tag{color:#4A7FA0}
+.contact input,.contact select,.contact textarea{background:#FFFFFF;border-color:#A9D9DB;color:#233D60}
+.contact input::placeholder,.contact textarea::placeholder{color:#4F6878}
+.contact select{color:#4F6878}
+.contact input:focus,.contact select:focus,.contact textarea:focus{border-color:#4A7FA0;box-shadow:0 0 0 3px rgba(169,217,219,.35)}
+.socials a{color:#233D60;border-color:#A9D9DB;background:#FFFFFF}
+.socials a:hover{color:#FFFFFF;border-color:#233D60;background:#233D60}
+.footer{border-color:#A9D9DB}
+.footer p,.footer small{color:#4F6878}
+.footer small{border-color:#A9D9DB}
+.case-study-content{color:#233D60}
+.case-study-hero,.case-study-sections section{background:#FFFFFF;border-color:#A9D9DB}
+.case-study-sections{border-color:#A9D9DB}
+.case-study-image-fallback{background:#F0F7EF}
+.results-metric{background:#FFFFFF;border-color:#A9D9DB}
+.results-metric strong{color:#233D60}
+.results-metric span{color:#4F6878}
+.results-metric:first-child{border-top-color:#EA3344}
+.read-more-pending{color:#4F6878}
