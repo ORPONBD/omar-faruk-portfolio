@@ -288,3 +288,13 @@ nav a:hover,.footer a:hover{color:#EA3344}
 .home-page .home-project-card:hover .home-project-link{transform:translateX(2px)}
 @media(max-width:800px){.home-page{--home-section-space:76px}.home-page #projectsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.home-page .home-project-card .case-info{padding:20px 18px}}
 @media(max-width:599px){.home-page{--home-section-space:64px}.home-page #projectsGrid{grid-template-columns:1fr;gap:16px}.home-page .home-project-fallback{padding:24px}.home-page .home-project-fallback b{right:24px;bottom:18px}}
+
+/* Work page vertical rhythm */
+main[data-work-page]>.page-hero{padding-top:80px;padding-bottom:56px}
+main[data-work-page]>.page-hero h1{margin-bottom:16px}
+main[data-work-page]>.page-hero .hero-copy{margin-top:0;margin-bottom:0}
+main[data-work-page]>.work{padding-top:0;padding-bottom:96px}
+main[data-work-page]>.work .work-head{margin-bottom:18px}
+main[data-work-page]>.work .project-filters{margin-bottom:24px}
+@media(max-width:800px){main[data-work-page]>.page-hero{padding-top:58px;padding-bottom:42px}main[data-work-page]>.work{padding-bottom:78px}}
+@media(max-width:520px){main[data-work-page]>.page-hero{padding-top:50px;padding-bottom:34px}main[data-work-page]>.page-hero h1{margin-bottom:12px}main[data-work-page]>.work .work-head{margin-bottom:14px}main[data-work-page]>.work .project-filters{margin-bottom:20px}main[data-work-page]>.work{padding-bottom:64px}}
