@@ -259,3 +259,32 @@ nav a:hover,.footer a:hover{color:#EA3344}
 @media(max-width:800px){.trusted-brands{padding:40px 0 42px}.trusted-brands-heading{margin-bottom:18px}.brand-marquee{--brand-marquee-gap:30px}.brand-marquee-logo{width:194px;height:74px}.brand-marquee-logo img{max-width:178px;max-height:62px}}
 @media(max-width:600px){.trusted-brands{padding:34px 0 36px}.trusted-brands-heading{padding:0 18px;margin-bottom:15px}.trusted-brands-heading p{font-size:14px}.brand-marquee{--brand-marquee-gap:22px}.brand-marquee-track{animation-duration:72s}.brand-marquee-logo{width:158px;height:64px}.brand-marquee-logo img{max-width:146px;max-height:56px}}
 @media(prefers-reduced-motion:reduce){.brand-marquee{overflow:visible}.brand-marquee-track{width:100%;gap:0;animation:none;transform:none;will-change:auto}.brand-marquee-group{flex:1 1 100%;flex-wrap:wrap;justify-content:center;gap:24px}.brand-marquee-group[aria-hidden="true"]{display:none}.brand-marquee-logo img{transition:none}}
+
+/* Homepage case-study cards and spacing rhythm */
+.home-page{--home-section-space:clamp(76px,8vw,104px)}
+.home-page .intro{padding-top:var(--home-section-space);padding-bottom:var(--home-section-space)}
+.home-page .services,.home-page .work,.home-page .proof,.home-page .about,.home-page .insights{padding-top:var(--home-section-space);padding-bottom:var(--home-section-space)}
+.home-page .contact{padding-top:var(--home-section-space);padding-bottom:var(--home-section-space)}
+.home-page .section-tag{font-size:10px;line-height:1.4;letter-spacing:.14em;color:#4A7FA0}
+.home-page .intro h2,.home-page .proof h2,.home-page .about h2{max-width:760px;line-height:1.1;letter-spacing:-.04em}
+.home-page .intro p,.home-page .proof-list p,.home-page .about p,.home-page .work-head p{max-width:620px;line-height:1.75}
+.home-page .btn{min-height:48px;padding:13px 20px;border-radius:4px;font-size:13px;line-height:1.25;transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+.home-page #projectsGrid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:20px}
+.home-page .home-project-card{height:100%;min-width:0;border-radius:5px}
+.home-page .case-grid:not(.case-grid-work) .home-project-visual{height:auto;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid #DDE5E2;background:#F0F7EF}
+.home-page .case-grid:not(.case-grid-work) .home-project-visual.has-image{background:#F0F7EF}
+.home-page .home-project-visual.has-fallback{background:linear-gradient(135deg,#F0F7EF 0%,#E6F2EE 54%,#D9EBE8 100%)}
+.home-page .case-grid:not(.case-grid-work) .home-project-image{object-fit:contain;object-position:center}
+.home-page .home-project-fallback{position:relative;display:flex;width:100%;height:100%;min-height:0;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(20px,4vw,40px);background:radial-gradient(ellipse at 85% 18%,rgba(169,217,219,.52),transparent 48%)}
+.home-page .home-project-fallback::after{position:absolute;right:-5%;bottom:-50%;width:48%;aspect-ratio:1;border:1px solid rgba(74,127,160,.2);border-radius:50%;content:""}
+.home-page .home-project-fallback>span{position:relative;z-index:1;color:#4A7FA0;font-size:10px;font-weight:700;letter-spacing:.14em}
+.home-page .home-project-fallback strong{position:relative;z-index:1;max-width:85%;color:#233D60;font:700 clamp(24px,3.2vw,40px)/1.1 Manrope;letter-spacing:-.035em;overflow-wrap:anywhere}
+.home-page .home-project-fallback b{position:absolute;right:clamp(20px,4vw,40px);bottom:clamp(16px,3vw,30px);color:rgba(35,61,96,.5);font:800 14px Manrope;letter-spacing:-.04em}
+.home-page .home-project-fallback b span{color:#EA3344}
+.home-page .home-project-card .case-info{flex:1;min-width:0}
+.home-page .home-project-card .case-info>div{flex:1;min-width:0}
+.home-page .home-project-card .case-info p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.home-page .home-project-card .home-project-link{transition:color .18s ease,transform .18s ease}
+.home-page .home-project-card:hover .home-project-link{transform:translateX(2px)}
+@media(max-width:800px){.home-page{--home-section-space:76px}.home-page #projectsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.home-page .home-project-card .case-info{padding:20px 18px}}
+@media(max-width:599px){.home-page{--home-section-space:64px}.home-page #projectsGrid{grid-template-columns:1fr;gap:16px}.home-page .home-project-fallback{padding:24px}.home-page .home-project-fallback b{right:24px;bottom:18px}}
