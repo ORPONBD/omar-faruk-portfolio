@@ -297,3 +297,28 @@ main[data-work-page]>.work .work-head{margin-bottom:18px}
 main[data-work-page]>.work .project-filters{margin-bottom:24px}
 @media(max-width:800px){main[data-work-page]>.page-hero{padding-top:58px;padding-bottom:42px}main[data-work-page]>.work{padding-bottom:78px}}
 @media(max-width:520px){main[data-work-page]>.page-hero{padding-top:50px;padding-bottom:34px}main[data-work-page]>.page-hero h1{margin-bottom:12px}main[data-work-page]>.work .work-head{margin-bottom:14px}main[data-work-page]>.work .project-filters{margin-bottom:20px}main[data-work-page]>.work{padding-bottom:64px}}
+
+/* Homepage global spacing scale */
+.home-page{--home-section-space:clamp(58px,5.4vw,76px)}
+.home-page .hero{padding-top:clamp(58px,5.4vw,76px);padding-bottom:36px}
+.home-page .hero h1{margin:14px 0 18px}
+.home-page .hero-actions{gap:12px;margin:18px 0 16px}
+.home-page .hero-meta{padding:15px 0 12px}
+.home-page .intro{gap:32px}
+.home-page .intro p{margin-top:18px}
+.home-page .services>.section-tag{margin-bottom:18px}
+.home-page .service-grid article{min-height:260px;padding:22px}
+.home-page .service-grid h3{margin-top:30px}
+.home-page .service-grid p{margin-bottom:30px}
+.home-page .work-head{gap:28px;margin-bottom:20px}
+.home-page .proof-inner{gap:64px}
+.home-page .proof-list>div{padding:20px 0}
+.home-page .about-grid{gap:64px;margin-top:28px}
+.home-page .insight-grid{margin-top:24px}
+.home-page .contact-inner{gap:60px}
+.home-page #contactHeading{margin:18px 0 14px}
+.home-page .trusted-brands{padding-top:34px;padding-bottom:36px}
+.home-page .trusted-brands-heading{margin-bottom:16px}
+.home-page .footer{padding-top:28px;padding-bottom:28px}
+@media(max-width:800px){.home-page{--home-section-space:clamp(52px,7vw,60px)}.home-page .hero{padding-top:56px;padding-bottom:32px}.home-page .intro{gap:24px}.home-page .proof-inner,.home-page .about-grid,.home-page .contact-inner{gap:28px}.home-page .service-grid article{min-height:244px}.home-page .trusted-brands{padding-top:30px;padding-bottom:32px}}
+@media(max-width:520px){.home-page{--home-section-space:48px}.home-page .hero{padding-top:46px;padding-bottom:26px}.home-page .hero h1{margin:14px 0 16px}.home-page .hero-actions{margin:16px 0 14px;gap:9px}.home-page .hero-meta{padding:12px 0 10px}.home-page .intro{gap:18px}.home-page .intro p{margin-top:14px}.home-page .service-grid article{min-height:228px;padding:20px}.home-page .service-grid h3{margin-top:26px}.home-page .service-grid p{margin-bottom:32px}.home-page .proof-inner,.home-page .about-grid,.home-page .contact-inner{gap:22px}.home-page .trusted-brands{padding-top:24px;padding-bottom:26px}.home-page .trusted-brands-heading{margin-bottom:12px}.home-page .footer{padding-top:24px;padding-bottom:24px}}
