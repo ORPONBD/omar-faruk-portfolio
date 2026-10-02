@@ -97,6 +97,18 @@ create table if not exists public.testimonials (
   updated_at timestamptz default now()
 );
 
+create table if not exists public.trusted_brands (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  logo_url text not null,
+  website_url text,
+  display_order integer not null default 0,
+  is_active boolean not null default true,
+  grayscale boolean not null default true,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
 alter table public.site_content add column if not exists experience_summary text default '';
 alter table public.projects add column if not exists services_used text default '';
 alter table public.projects add column if not exists results text default '';
@@ -106,6 +118,7 @@ alter table public.services enable row level security;
 alter table public.projects enable row level security;
 alter table public.insights enable row level security;
 alter table public.testimonials enable row level security;
+alter table public.trusted_brands enable row level security;
 
 -- Public visitors can read published portfolio content.
 create policy "public read site content" on public.site_content for select using (true);
@@ -120,6 +133,10 @@ create policy "authenticated manage services" on public.services for all to auth
 create policy "authenticated manage projects" on public.projects for all to authenticated using (true) with check (true);
 create policy "authenticated manage insights" on public.insights for all to authenticated using (true) with check (true);
 create policy "authenticated manage testimonials" on public.testimonials for all to authenticated using (true) with check (true);
+create policy "public read active trusted brands" on public.trusted_brands for select using (is_active = true);
+create policy "authenticated manage trusted brands" on public.trusted_brands for all to authenticated using (true) with check (true);
+grant select on public.trusted_brands to anon, authenticated;
+grant all on public.trusted_brands to authenticated;
 
 -- Seed current portfolio content.
 insert into public.services (number,title,description,sort_order)

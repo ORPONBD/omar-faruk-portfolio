@@ -32,5 +32,16 @@ async function load(){let data={...fallback},services=[],projects=[],insights=[]
  renderContact(data);const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
 }
 load();
+function renderTrustedBrands(rows){
+ const section=document.getElementById('trustedBrands'),track=document.getElementById('trustedBrandsTrack');
+ if(!section||!track)return;
+ const brands=(Array.isArray(rows)?rows:[]).filter(brand=>brand?.is_active&&projectDestination(brand.logo_url));
+ if(!brands.length){section.hidden=true;track.replaceChildren();return;}
+ const logo=(brand,duplicate=false)=>{const name=String(brand.name||'Brand').trim(),url=projectDestination(brand.logo_url),website=projectDestination(brand.website_url),image=`<img src="${clean(url)}" alt="${clean(name)}" loading="lazy" decoding="async"${brand.grayscale?' class="is-grayscale"':''}>`;if(!url)return '';const attrs=duplicate?' tabindex="-1" aria-hidden="true"':'';return website?`<a class="brand-marquee-logo" href="${clean(website)}" target="_blank" rel="noopener noreferrer"${attrs}>${image}</a>`:`<span class="brand-marquee-logo"${attrs}>${image}</span>`;};
+ const first=brands.map(brand=>logo(brand)).join(''),second=brands.map(brand=>logo(brand,true)).join('');
+ track.innerHTML=`<div class="brand-marquee-group">${first}</div><div class="brand-marquee-group" aria-hidden="true">${second}</div>`;section.hidden=false;
+}
+async function loadTrustedBrands(){const section=document.getElementById('trustedBrands');if(!section||!window.supabase||!window.SUPABASE_URL||!window.SUPABASE_ANON_KEY)return;try{const client=supabase.createClient(window.SUPABASE_URL,window.SUPABASE_ANON_KEY),{data,error}=await client.from('trusted_brands').select('id,name,logo_url,website_url,display_order,is_active,grayscale').eq('is_active',true).order('display_order',{ascending:true});if(error)throw error;renderTrustedBrands(data||[]);}catch(error){section.hidden=true;console.info('Trusted brand logos are unavailable until the trusted_brands CMS table is configured.');}}
+loadTrustedBrands();
 const menu=document.querySelector('.menu');const header=document.querySelector('.nav');if(menu&&header)menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');header.classList.toggle('nav-open',open);});
 const progress=document.querySelector('.progress');if(progress){const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max>0?scrollY/max*100:0}%`;};addEventListener('scroll',update,{passive:true});update();}
