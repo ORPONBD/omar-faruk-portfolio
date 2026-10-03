@@ -67,6 +67,17 @@
     .brand-summary strong{font-size:24px}
     .panel#dashboard .quick-actions{gap:8px;margin-top:13px}
     .panel#dashboard .quick-actions .btn{min-height:36px}
+    .inquiries-table{min-width:920px}
+    .inquiry-message-preview{display:block;max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+    .inquiry-status{white-space:nowrap;text-transform:capitalize}
+    .inquiry-message{white-space:pre-wrap;overflow-wrap:anywhere;padding:14px;border:1px solid var(--border);border-radius:9px;background:#F0F7EF;color:var(--text);line-height:1.65}
+    .inquiry-details{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:0 0 16px}
+    .inquiry-details div{min-width:0}
+    .inquiry-details dt{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .inquiry-details dd{margin:3px 0 0;overflow-wrap:anywhere;color:var(--navy);font-size:13px}
+    .inquiry-details .full{grid-column:1/-1}
+    @media(min-width:1121px){.kpi-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+    @media(min-width:561px) and (max-width:1120px){.kpi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:820px){.main{padding-top:22px}.panel#dashboard .card{padding:18px}}
     @media(max-width:560px){.main{padding-top:18px}.top{margin-bottom:18px}.panel#dashboard .card{padding:16px}.kpi{padding:13px 12px}.kpi-icon{width:30px;height:30px}.kpi-value{font-size:23px}.kpi-note{font-size:9px}.brand-preview img{width:54px;height:43px;flex-basis:54px}}
   </style>
@@ -91,6 +102,7 @@
         <button data-tab="home" data-icon="▤">Site Content</button>
         <button data-tab="projects" data-icon="◫">Projects / Case Studies</button>
         <button data-tab="trusted_brands" data-icon="◇">Trusted Brands</button>
+        <button data-tab="inquiries" data-icon="✉">Inquiries</button>
         <div class="nav-group-label">Manage</div>
         <button data-tab="services" data-icon="✳">Services</button>
         <button data-tab="insights" data-icon="▧">Insights</button>
@@ -114,6 +126,7 @@
           <article class="kpi"><span class="kpi-icon" aria-hidden="true">◇</span><span class="kpi-label">Active Trusted Brands</span><strong id="countTrustedBrands" class="kpi-value">—</strong><p class="kpi-note">Logos featured on the homepage</p></article>
           <article class="kpi"><span class="kpi-icon" aria-hidden="true">✳</span><span class="kpi-label">Services</span><strong id="countServices" class="kpi-value">—</strong><p class="kpi-note">Services managed in the CMS</p></article>
           <article class="kpi"><span class="kpi-icon" aria-hidden="true">▧</span><span class="kpi-label">Published Insights</span><strong id="dashboardPublishedInsights" class="kpi-value">—</strong><p class="kpi-note">Articles visible to visitors</p></article>
+          <article class="kpi"><span class="kpi-icon" aria-hidden="true">✉</span><span class="kpi-label">New Inquiries</span><strong id="countNewInquiries" class="kpi-value">—</strong><p class="kpi-note">Messages awaiting a response</p></article>
         </div>
         <div class="dashboard-grid">
           <section class="card"><div class="card-heading"><div><h2>Recent Projects</h2><p class="card-intro">Your latest case study records.</p></div><button class="btn" type="button" data-open-tab="projects">View all</button></div><div class="recent-table-wrap"><table class="recent-table"><thead><tr><th>Project</th><th>Status</th><th>Updated</th><th>Action</th></tr></thead><tbody id="dashboardProjects"><tr><td colspan="4" class="table-empty">Loading project records…</td></tr></tbody></table></div></section>
@@ -121,6 +134,8 @@
         </div>
         <section class="card"><div class="card-heading"><div><h2>Quick Actions</h2><p class="card-intro">Jump straight to common content tasks.</p></div></div><div class="quick-actions"><button id="quickAddProject" class="btn primary" type="button">+ Add Project</button><button id="quickAddBrand" class="btn" type="button">+ Add Trusted Brand</button><button id="quickAddInsight" class="btn" type="button">+ Add Insight</button><button id="quickEditContent" class="btn" type="button">Edit Site Content</button></div></section>
       </section>
+
+      <section id="inquiries" class="panel"><div class="card"><div class="panel-heading"><div><h2>Inquiries</h2><p class="card-intro">Contact requests submitted through the portfolio form.</p></div></div><div class="table-wrap"><table class="trusted-brands-table inquiries-table"><thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Service</th><th>Message preview</th><th>Status</th><th>Submitted</th><th>Action</th></tr></thead><tbody id="inquiriesList"><tr><td colspan="8" class="table-empty">Loading inquiries…</td></tr></tbody></table></div></div></section>
 
       <section id="home" class="panel"><form id="homeForm" class="card"><div class="panel-heading"><div><h2>Site Content</h2><p class="card-intro">Edit homepage, profile, and contact content.</p></div></div><div class="grid"><div class="full"><label>Hero eyebrow</label><input name="hero_eyebrow"></div><div class="full"><label>Hero headline</label><textarea name="hero_title"></textarea></div><div class="full"><label>Hero copy</label><textarea name="hero_copy"></textarea></div><div><label>Primary button</label><input name="hero_primary_label"></div><div><label>Primary URL</label><input name="hero_primary_url"></div><div><label>Secondary button</label><input name="hero_secondary_label"></div><div><label>Secondary URL</label><input name="hero_secondary_url"></div><div><label>About name</label><input name="about_name"></div><div><label>About role</label><input name="about_role"></div><div class="full"><label>About lead</label><textarea name="about_lead"></textarea></div><div class="full"><label>About body</label><textarea name="about_body"></textarea></div><div class="full"><label>Experience summary</label><textarea name="experience_summary" placeholder="Add verified experience details when ready."></textarea></div><div><label>Specialties</label><input name="about_specialties"></div><div><label>Profile image URL</label><input name="profile_image_url"></div><div class="full"><label>Contact heading</label><input name="contact_heading"></div><div class="full"><label>Contact copy</label><textarea name="contact_copy"></textarea></div></div><div class="row"><button class="btn primary" type="submit">Save site content</button></div></form></section>
       <section id="services" class="panel"><div class="card"><div class="panel-heading"><div><h2>Services</h2><p class="card-intro">Manage the service cards shown across your site.</p></div><button id="newService" class="btn primary" type="button">+ Add service</button></div><div id="servicesList" class="list"></div></div></section>

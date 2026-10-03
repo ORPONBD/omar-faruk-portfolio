@@ -322,3 +322,9 @@ main[data-work-page]>.work .project-filters{margin-bottom:24px}
 .home-page .footer{padding-top:28px;padding-bottom:28px}
 @media(max-width:800px){.home-page{--home-section-space:clamp(52px,7vw,60px)}.home-page .hero{padding-top:56px;padding-bottom:32px}.home-page .intro{gap:24px}.home-page .proof-inner,.home-page .about-grid,.home-page .contact-inner{gap:28px}.home-page .service-grid article{min-height:244px}.home-page .trusted-brands{padding-top:30px;padding-bottom:32px}}
 @media(max-width:520px){.home-page{--home-section-space:48px}.home-page .hero{padding-top:46px;padding-bottom:26px}.home-page .hero h1{margin:14px 0 16px}.home-page .hero-actions{margin:16px 0 14px;gap:9px}.home-page .hero-meta{padding:12px 0 10px}.home-page .intro{gap:18px}.home-page .intro p{margin-top:14px}.home-page .service-grid article{min-height:228px;padding:20px}.home-page .service-grid h3{margin-top:26px}.home-page .service-grid p{margin-bottom:32px}.home-page .proof-inner,.home-page .about-grid,.home-page .contact-inner{gap:22px}.home-page .trusted-brands{padding-top:24px;padding-bottom:26px}.home-page .trusted-brands-heading{margin-bottom:12px}.home-page .footer{padding-top:24px;padding-bottom:24px}}
+
+.contact-honeypot{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;opacity:0;pointer-events:none}
+.contact-feedback{grid-column:1/-1;margin:2px 0;padding:12px 14px;border:1px solid #A9D9DB;border-radius:4px;background:#FFFFFF;color:#233D60;font-size:13px}
+.contact-feedback[data-state="error"]{border-color:#EA3344;color:#233D60}
+.contact-feedback[hidden]{display:none}
+.contact form .btn:disabled{cursor:wait;opacity:.72;transform:none}

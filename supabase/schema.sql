@@ -97,6 +97,22 @@ create table if not exists public.testimonials (
   updated_at timestamptz default now()
 );
 
+create table if not exists public.contact_inquiries (
+  id uuid primary key default gen_random_uuid(),
+  name text not null check (length(btrim(name)) > 0),
+  email text not null check (email ~* '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'),
+  company text,
+  service text not null check (length(btrim(service)) > 0),
+  message text not null check (length(btrim(message)) > 0),
+  status text not null default 'new' check (status in ('new', 'contacted', 'closed')),
+  created_at timestamptz not null default now()
+);
+
+create index if not exists contact_inquiries_created_at_idx
+  on public.contact_inquiries (created_at desc);
+create index if not exists contact_inquiries_status_created_at_idx
+  on public.contact_inquiries (status, created_at desc);
+
 create table if not exists public.trusted_brands (
   id uuid primary key default gen_random_uuid(),
   name text not null,
@@ -119,6 +135,7 @@ alter table public.projects enable row level security;
 alter table public.insights enable row level security;
 alter table public.testimonials enable row level security;
 alter table public.trusted_brands enable row level security;
+alter table public.contact_inquiries enable row level security;
 
 -- Public visitors can read published portfolio content.
 create policy "public read site content" on public.site_content for select using (true);
@@ -137,6 +154,26 @@ create policy "public read active trusted brands" on public.trusted_brands for s
 create policy "authenticated manage trusted brands" on public.trusted_brands for all to authenticated using (true) with check (true);
 grant select on public.trusted_brands to anon, authenticated;
 grant all on public.trusted_brands to authenticated;
+
+-- Public visitors can submit inquiries but cannot read or alter them.
+revoke all on table public.contact_inquiries from public, anon, authenticated;
+grant insert (name, email, company, service, message)
+  on table public.contact_inquiries to anon, authenticated;
+grant select, delete on table public.contact_inquiries to authenticated;
+grant update (status) on table public.contact_inquiries to authenticated;
+create policy "public insert contact inquiries"
+  on public.contact_inquiries for insert to anon, authenticated
+  with check (true);
+create policy "authenticated read contact inquiries"
+  on public.contact_inquiries for select to authenticated
+  using (true);
+create policy "authenticated update contact inquiry status"
+  on public.contact_inquiries for update to authenticated
+  using (true)
+  with check (status in ('new', 'contacted', 'closed'));
+create policy "authenticated delete contact inquiries"
+  on public.contact_inquiries for delete to authenticated
+  using (true);
 
 -- Seed current portfolio content.
 insert into public.services (number,title,description,sort_order)
